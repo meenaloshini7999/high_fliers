@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>High-Fliers</title>
+<style>
+div.box 
+{
+margin:30px;
+background-color:black;
+opacity:0.8;
+filter:alpha(opacity=60);
+}
+h1,i
+{
+padding:10px;
+color:#F5FFFA;
+}
+input[type=text],input[type=password]
+{
+text-color:red;
+padding:10px;
+align:center;
+border:1px,grey;
+border-radius:4px;
+}
+input[type=submit]
+{
+padding:10px;
+align:center;
+background-color:#DA70D6;
+color:black;
+}
+body 
+{
+text-align:center;
+}
+form 
+{
+display:inline-block;
+}
+h2,label
+{
+opacity:1;
+color:#F5FFFA;
+}
+textarea
+{
+color:black;
+}
+</style>
+<script>
+function validate()
+{
+if(form1.eid.value==="demo@gmail.com" && form1.pwd.value==="password")
+{
+window.open("first.html");
+self.close();
+}
+else
+{
+alert("Invalid Username or Password");
+}
+}
+</script>
+</head>
+<body style="background-image:url('home.jpg');background-repeat:no;background-size:cover;">
+<div class="box">
+<h1>High-Fliers</h1>
+<i>We have solution for your parking problems!!!</i>
+</div>
+<center><div class="box" style="width:50%;">
+<h2>LOGIN</h2>
+<form name="form1" method="post" onsubmit="validate()">
+<label>Email ID:</label><br>
+<input type="text" name="eid"><br>
+<label>Password:</label><br>
+<input type="password" name="pwd"><br><br>
+<input type="submit" name="log">
+</form></center>
+</div>
+</body>
+</html>

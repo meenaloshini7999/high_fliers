@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>High-Fliers</title>
+<style>
+div.box 
+{
+margin:30px;
+background-color:black;
+opacity:0.8;
+filter:alpha(opacity=60);
+}
+h1,i
+{
+padding:10px;
+color:#F5FFFA;
+}
+input[type=text],input[type=date]
+{
+text-color:red;
+padding:10px;
+align:center;
+border:1px,grey;
+border-radius:4px;
+}
+input[type=submit]
+{
+padding:10px;
+align:center;
+background-color:#DA70D6;
+color:black;
+}
+body 
+{
+text-align:center;
+}
+form 
+{
+display:inline-block;
+}
+h2,label
+{
+opacity:1;
+color:#F5FFFA;
+}
+textarea
+{
+color:black;
+}
+</style>
+<script>
+function book()
+{
+if(form2.own.value!="" && form2.car.value!="" && form2.lp.value!="" && form2.dt.value!="")
+{
+alert("Successfully Booked!!");
+window.open("booked.html");
+self.close();
+}
+else
+alert("Kindly fill all the details");
+}
+</script>
+</head>
+<body style="background-image:url('home.jpg');background-repeat:no;background-size:cover;">
+<div class="box">
+<h1>High-Fliers</h1>
+<i>We have solution for your parking problems!!!</i>
+</div>
+<center><div class="box" style="width:50%;">
+<h2>Booking</h2>
+<form name="form2" method="post" onsubmit="book()">
+<label>Owner:</label><br>
+<input type="text" name="own"><br>
+<label>Car:</label><br>
+<input type="text" name="car"><br><br>
+<label>License Plate Number:</label><br>
+<input type="text" name="lp"><br><br>
+<label>Date on which parking is required?:</label><br>
+<input type="date" name="dt"><br><br>
+<input type="submit" value="Confirm Booking" name="bk">
+</form></center>
+</div>
+</body>
+</html>

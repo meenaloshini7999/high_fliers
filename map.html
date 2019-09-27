@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 90%;
+      }
+      .button 
+     {
+	background-color: black;
+ 	border: none;
+ 	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+ 	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	cursor: pointer;
+}html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+
+
+
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+
+function initMap()
+{map = new google.maps.Map(document.getElementById('map'), {center: {lat: 12.9601, lng: 80.0574},zoom: 6});
+// The location of chennai
+var chennai = {lat: 12.9650, lng:  80.0784};
+// The map, centered at chennai
+var map = new google.maps.Map(document.getElementById('map'), {zoom: 4, center: chennai});
+// The marker, positioned at chennai
+var marker = new google.maps.Marker({position: chennai,icon:"http://maps.google.com/mapfiles/ms/icons/pink-dot.png", map: map});
+        
+infoWindow = new google.maps.InfoWindow;
+// Try HTML5 geolocation.
+if (navigator.geolocation) 
+{
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('high fliers parking');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX18jXBy58DQhUFaGzYTlWy3RSRY8X2To &callback=initMap">
+    </script>
+<center>
+
+<a href="file:///E:/Frontend/book.html"><center>
+<button class="button" type="button">BOOK PARKING SLOT </button>
+</center></a>
+<a href="file:///E:/Frontend/first.html"> 
+<center>
+<button class="button" type="button" onclick='showMessage()'/>CANCEL PARKING SLOT </button> </center> </a>
+</body>
+</html>
